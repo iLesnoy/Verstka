@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <title>Add Item Page</title>
+  <link rel='stylesheet' href='/boxes/styles/registration.css' />
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+</head>
+
+
+<body>
+  <div id="header"></div>
+  <div class="reactangle">Add New Coupon</div>
+  <form action="" class="add-action">
+    <div class="add-container left">
+      <p>Company<span class="required"></span> <br>
+        <input type="text" class="reg-form" />
+
+      <p>Category<span class="required"></span> <br>
+        <select name="Catehory" class="reg-form">
+          <option value="choice">Category</option>
+          <option value="choice">Category</option>
+          <option value="choice">Category</option>
+        </select>
+      <p>Valid to<span class="required"></span> <br>
+        <input type="datetime-local" class="reg-form" />
+      <p>Price<span class="required"></span> <br>
+        <input type="number" class="reg-form" />
+
+      <p>Chose image</p>
+      <div class="field__wrapper">
+
+        <input name="file" type="file" name="file" id="field__file-2" class="field field__file" multiple>
+        <label class="field__file-wrapper" for="field__file-2">
+          <div class="field__file-fake">
+            <div class="field__file-button"></div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="add-container right">
+      <p>Item Name<span class="required"></span> <br>
+        <input type="text" class="reg-form">
+      <p>Short description<span class="required"></span> <br>
+        <textarea class="reg-form description" ></textarea>
+      <p>Long description<span class="required"></span> <br>
+        <textarea class="reg-form description" maxlength="500"></textarea>
+    </div>
+    <div class="reg-buttons" id="add-acation">
+      <button type="submit" formaction="#" class="reg-button white">Back</button>
+      <button type="submit" formaction="#" class="reg-button">Save</button>
+    </div>
+  </form>
+
+  <div class='footer'>
+    <div class='footer-item footer-one'></div>
+  </div>
+</body>
+
+
+<script>
+  $(function () {
+    $("#header").load("header.html");
+  });
+
+  let fields = document.querySelectorAll('.field__file');
+  Array.prototype.forEach.call(fields, function (input) {
+    let label = input.nextElementSibling,
+      labelVal = label.querySelector('.field__file-fake').innerText;
+
+    input.addEventListener('change', function (e) {
+      let countFiles = '';
+      if (this.files && this.files.length >= 1)
+        countFiles += this.files.length;
+
+      if (countFiles)
+        label.querySelector('.field__file-fake').innerText = 'Files: ' + countFiles;
+      else
+        label.querySelector('.field__file-fake').innerText = labelVal;
+    });
+  });
+</script>
+
+</html>

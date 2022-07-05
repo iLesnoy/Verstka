@@ -1,0 +1,121 @@
+.main-panel{
+    display: flex;
+    width: auto;
+    height: 90px;
+    padding-top: 13px;
+    padding-left: 25px;
+    color: rgb(185, 180, 180);
+    background-color: rgb(164, 162, 162);
+}
+
+.main-panel{
+    display: flex;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    color: rgb(185, 180, 180);
+    background-color: rgb(164, 162, 162);
+}
+
+.head-icon{
+    display: flex;
+    color: white;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+}
+
+.main-panel.menu{
+    display: flex;
+    width: auto;
+    justify-content: center;
+    height: 90px;
+    padding-top: 13px;
+    padding-left: 35px;
+    padding-right: 60px;
+    color: rgb(9, 1, 1);
+    background-color: rgb(164, 162, 162);
+}
+
+.main-body{
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(200, 195, 195);
+    width: auto;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 190px;
+    padding-left: 190px;
+    overflow: auto;
+}
+
+.main-body > *{
+    margin: 1em 0;
+}
+.icon-body{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    width: 260px;
+    background-color: white;
+    padding-right: 15px;
+    padding-left: 12px;
+}
+
+.icon-image{
+    display: flex;
+    background-color: rgb(134, 128, 128);
+    width: 260px;
+    height: 210px;
+}
+
+.tovar{
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.add-button{
+    color: black;
+    background-color: white;
+    border-width: thin;
+    border-color: black;
+    height: 25px;
+    width: 110px;
+    margin-left: 120px;
+    margin-top: -28px;
+}
+
+.small{
+    color: rgb(208, 196, 196);
+    font-size:x-small;
+    padding-top: 4px;
+}
+
+.descr-style{
+    font-size: 13px;
+}
+
+.price{
+    padding-top: 8px;
+}
+.line {
+    border-bottom: 1px solid rgb(185, 178, 178); 
+    width: 250px;
+   }
+.footer{
+    display: flex;
+}
+.hed-bar{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: -10px;
+}
