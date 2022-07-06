@@ -5,6 +5,7 @@
   <meta charset='UTF-8' />
   <title>Main Page</title>
   <link rel='stylesheet' href='/boxes/styles/main.css' />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous">
     </script>
@@ -63,7 +64,8 @@
   <div class="main-body">
 
     <div class="tovar">
-      <div class="icon-image"></div>
+      <div class="icon-image"><img src="/images/Kroxigor-Lizardmen-Warhammer-Fantasy-фэндомы-4073908.jpeg"
+          class="icon-image"></div>
       <div class="icon-body">
         <p>Cupon Name</p>
         <a href="#"> <img src='/images/favorite_black_24dp.svg' /></a>
@@ -177,11 +179,35 @@
         <button class="add-button">add</button>
       </div>
     </div>
-    
+
+    <!-- <div class="progress-bar">
+      <button class="back-to-top hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="back-to-top-icon" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
+        </svg>
+      </button>
+    </div> -->
   </div>
 
 
   <script src="/script/scroll.js"></script>
+  <script src="/script/top.js"></script>
+
+  <script>
+    // Сохраняем позицию прокрутки при прокрутке
+    $(window).scroll(function () {
+      if ($(document).scrollTop() != 0) {
+        localStorage.setItem("offsetTop", $(window).scrollTop());
+        console.log(localStorage.getItem("offsetTop"));
+      }
+    });
+    // Загружаем, вынимаем и прокручиваем до последней сохраненной позиции
+    window.onload = function () {
+      var offset = localStorage.getItem("offsetTop");
+      $(document).scrollTop(offset);
+    };
+  </script>
 
 </body>
 
@@ -190,4 +216,5 @@
     $("#header").load("header.html");
   });
 </script>
+
 </html>
