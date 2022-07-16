@@ -9,10 +9,13 @@
 }
 
 .main-panel {
+    padding-right: 200px;
+    padding-left: 190px;
     display: flex;
     width: auto;
-    height: auto;
+    height: 130px;
     justify-content: center;
+    justify-content: space-between;
     color: rgb(185, 180, 180);
     background-color: rgb(164, 162, 162);
 }
@@ -20,11 +23,48 @@
 .head-icon {
     display: flex;
     color: white;
-    width: 50px;
-    height: 50px;
+    width: 165px;
+    height: 85px;
     background-color: white;
 }
 
+.container {
+    position: relative;  
+    max-width: 189px;
+}
+.container:before {
+  content:"";
+  position:absolute;
+  width: 106%;
+  height: 86%;
+  top:0;left:0;right:0;
+  background-color:rgba(251, 251, 251, 0);
+  transition: margin-right 2s ease-in-out .5s;
+}
+.container:hover::before {
+  background-color:rgba(255, 255, 255, 0.5);
+}
+.container img {
+    width: 200px;
+    height: 100px;
+ display:block;
+}
+.container button {
+  position: absolute;
+  top: 45%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  opacity:0;
+  background-color: #000000;
+  width: 120px;
+  height: 40px;
+  color: white;
+  border-radius: 5px;
+} 
+.container:hover button {   
+  opacity: 1;
+}
 .main-panel.menu {
     display: flex;
     width: auto;
@@ -60,11 +100,12 @@
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-    height: auto;
+    height: 100px;
     width: 260px;
     background-color: white;
     padding-right: 15px;
     padding-left: 12px;
+    padding-top: 10px;
 }
 
 .icon-image {
@@ -73,10 +114,11 @@
     width: 260px;
     height: 210px;
     transition: 1s;
-    /* Время эффекта */
+    overflow: hidden;
+
 }
 
-.icon-image:hover {
+.icon-image img:hover {
     transform: scale(1.1);
     /* Увеличиваем масштаб */
 }
@@ -95,8 +137,15 @@
     border-color: black;
     height: 25px;
     width: 110px;
-    margin-left: 120px;
-    margin-top: -28px;
+    margin-left: 125px;
+    margin-top: -27px;
+    opacity: 1;
+    border-radius: 5px;
+}
+
+.add-button:hover {
+    opacity: 0.6;
+    background-color: #dfe4ee;
 }
 
 .small {
@@ -136,11 +185,10 @@
     right: 3rem;
     bottom: 2rem;
     border-radius: 120%;
-    background: #9a9fa9;
+    background: #ff5900;
     padding: 0.5rem;
     border: none;
     cursor: pointer;
-    opacity: 100%;
     transition: opacity 0.5s;
     height: 50px;
     width: 50px;

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .inactive{
+        opacity: 0;
+    }
+</style>
+<body>
+    <div style="display: flex;">
+        <form action="" id="search">
+            <input type="text" id="search_text">
+        </form>
+        <div style="display: flex; flex-direction: column;">
+            <button id="category_btn">category</button>
+            <form action="" class="category-form inactive" id="category-form">
+                <input type="text" id="category-search-input">
+                <div class="search-result">
+                    <ul>
+                    </ul>
+                </div> 
+            </form>
+        </div>
+    </div>
+    
+
+        <h1 id="cards"></h1>
+    <script>
+        var categories = {
+            "fish_id":"fish",
+            "cat_id":"cat",
+            "dog_id":"dog",
+            "parrot_id":"parrot"
+        }        
+        const category_form = document.getElementById('category-form');
+        const category_btn = document.getElementById('category_btn');
+        const search_list = document.querySelector(".search-result ul");
+        const cards = document.querySelector("#cards");
+        const search_input = document.querySelector("#search_text");
+
+        // загрузка категорий
+        uploadCategories(categories);
+
+
+
+        // открытие/закрытие вкладки с категориями
+        document.querySelector('#category_btn').addEventListener('click', function(){
+            category_form.classList.toggle("inactive");
+        })
+
+
+        // срабатывает при выборе категории
+        // item.getAttribute("category-value") - id категории
+        // search_input.value - значение из поиска
+        document.querySelectorAll('.result-button').forEach(item => {
+            item.addEventListener('click', function(e){
+                e.preventDefault();
+                category_btn.innerHTML = item.innerHTML;
+                //
+                cards.innerHTML = "products from " + item.getAttribute("category-value") + " " + search_input.value;
+                //
+                category_form.classList.add("inactive");
+            })
+        })
+
+
+        // срабатывает при наборе текста в поиске категорий
+        // this.value - значение из поиска для категорий
+        document.querySelector("#category-search-input").addEventListener("input", function(){
+            removeResults();
+            if (this.value !== ""){
+                console.log("changed");
+                var filtered = Object.fromEntries(Object.entries(categories).filter(([k,v]) => v.indexOf(this.value) !== -1));
+                uploadCategories(filtered);
+            } else {
+                uploadCategories(categories);
+            }
+            
+        })
+
+
+        // добавляет новый результат (строчку) поиск категорий
+        function appendNewResult(key, value){
+            var li = document.createElement('li');
+                var a = document.createElement('a');
+                a.setAttribute('href', '#');
+                a.classList.add('result-button');
+                a.setAttribute('category-value', key)
+                a.innerHTML = value;
+                li.append(a);
+                li.setAttribute('class','item');
+                search_list.appendChild(li);
+        }
+
+        // удаляет все текущие строчки из поиска категорий
+        function removeResults(){
+            while (search_list.firstChild) {
+                search_list.removeChild(search_list.lastChild);
+            }
+        }
+
+        function uploadCategories(dict){
+            for (const [key, value] of Object.entries(dict)) {
+                appendNewResult(key, value);
+            }
+        }
+
+    </script>
+</body>
+</html>

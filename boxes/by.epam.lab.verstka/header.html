@@ -3,15 +3,23 @@
 
 <head>
   <meta charset='UTF-8' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Haeder</title>
   <link rel='stylesheet' href='/boxes/styles/style.css' />
+  <link rel='stylesheet' href='/boxes/styles/filter.css' />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
-
+<style>
+  .inactive{
+      opacity: 0;
+  }
+</style>
 <body>
   <div class='menu-container'>
 
@@ -21,12 +29,38 @@
         <a href="/boxes/first/main.html" class="logo">Logo</a>
       </div>
 
-      <form class="search" action="#">
-        <input type="text" class="" placeholder="Search by item Name" name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-      <div class="link">
 
+      <div style="display: flex;">
+        <form action="" id="search">
+          <input type="text" id="search_text">
+        </form>
+        <div style="display: flex; flex-direction: column;" class="">
+          <button id="category_btn">category</button>
+          <form action="" class="category-form inactive" id="category-form">
+            <input type="text" id="category-search-input">
+            <div class="search-result">
+            
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Category</button>
+        <div id="myDropdown" class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          <a href="#about">About</a>
+          <a href="#base">Base</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+          <a href="#custom">Custom</a>
+          <a href="#support">Support</a>
+          <a href="#tools">Tools</a>
+        </div>
+      </div>
+      
+
+      <div class="link">
         <div class='svg1'>
           <p><a href="#"><img src='/images/favorite_black_24dp.svg' /></a></p>
         </div>
@@ -39,6 +73,12 @@
       </div>
     </div>
   </div>
+
+
+  <h1 id="cards"></h1>
+  <!-- <script src="/script/search.js"></script> -->
+  <script src="/script/filterSearch.js"></script>
+
 </body>
 
 </html>

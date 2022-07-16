@@ -1,35 +1,32 @@
 var listElm = document.querySelector('.main-body');
-function fileRead(i) {
-  fetch("../data/main.json")
-    .then(response => response.json())
-    .then(data => {
-      const test = data.icons.find(item => item.id === i);
-      Object.entries(test).forEach(key => {
-        console.log(test["id"]);
-        console.log(test["image"]);
-        console.log(test["description"]);
-        console.log(test["price"]);
-      })
-      console.log(test);
-      return test;
-    })
-}
+var jesonObject;
+var elem;
+var elemDescript;
+var elemPrice;
+var image;
+var tagName;
+var offset = 10;
+var limit;
 
-function loadMore() {
+ function loadMore() {
+  for (var i = offset; i < offset + 1; i++) {
+    elem = fileRead(i);
 
-  for (var i = 0; i < 5; i++) {
+      image = elem["image"];
+      tagName = elem["name"];
+      elemDescript = elem["description"];
+      elemPrice = elem["price"];
 
-    fileRead(i);
-    
+
     var tovar = document.createElement('div');
     tovar.setAttribute('class', 'tovar');
     var icon_image = document.createElement('div');
     icon_image.setAttribute('class', 'icon-image');
-    icon_image.innerHTML="<img src='/images/Kroxigor-Lizardmen-Warhammer-Fantasy-фэндомы-4073908.jpeg' class='icon-image'>";
+    icon_image.innerHTML = image;
 
     var icon_doby = document.createElement('div');
     var text = document.createElement('p');
-    text.innerText = "Coupone Name"
+    text.innerText = tagName;
 
     var href = document.createElement('a');
     href.setAttribute('href', '#');
@@ -38,14 +35,18 @@ function loadMore() {
 
     var description = document.createElement('p');
     description.setAttribute('class', 'descr-style');
-    description.innerText = "Some Description";
+    description.innerText = elemDescript;
+
+    var expiration = document.createElement('p');
+    expiration.setAttribute('class', 'small');
+    expiration.innerText = "Expiration 3 days";
 
     var line = document.createElement('div');
     line.setAttribute('class', 'line');
 
     var price = document.createElement('p');
     price.setAttribute('class', 'price');
-    price.innerText = "500$";
+    price.innerText = elemPrice;
 
     var button = document.createElement('button');
     button.setAttribute('class', 'add-button');
@@ -55,6 +56,7 @@ function loadMore() {
     icon_doby.appendChild(text);
     icon_doby.appendChild(href);
     icon_doby.appendChild(description);
+    icon_doby.appendChild(expiration)
     icon_doby.appendChild(line);
     icon_doby.appendChild(price);
     icon_doby.appendChild(button);
@@ -63,11 +65,24 @@ function loadMore() {
     tovar.appendChild(icon_image);
     tovar.appendChild(icon_doby);
     listElm.appendChild(tovar);
-
-    console.log(tovar);
-    return tovar;
+  
   }
+  offset += 1;
 }
+
+
+function fileRead(i) {
+  console.log(i);
+  fetch("../data/main.json")
+    .then(response => response.json())
+    .then(data => {
+      jesonObject = data.icons.find(item => item.id === i);
+    });
+  return jesonObject;
+}
+
+
+
 
 function getDocHeight() {	// $(document).height() value depends on browser
   var D = document;
@@ -77,6 +92,7 @@ function getDocHeight() {	// $(document).height() value depends on browser
     D.body.clientHeight, D.documentElement.clientHeight
   );
 }
+
 
 document.addEventListener('DOMContentLoaded', function (e) {
   document.addEventListener('scroll', function (e) {
