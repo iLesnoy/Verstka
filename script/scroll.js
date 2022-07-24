@@ -5,18 +5,20 @@ var elemDescript;
 var elemPrice;
 var image;
 var tagName;
-var offset = 10;
+var offset = 11;
 var limit;
+var data;
+var elemCategory;
 
- function loadMore() {
+function loadMore() {
   for (var i = offset; i < offset + 1; i++) {
     elem = fileRead(i);
 
-      image = elem["image"];
-      tagName = elem["name"];
-      elemDescript = elem["description"];
-      elemPrice = elem["price"];
-
+    elemCategory = elem["category"];
+    tagName = elem["name"];
+    image = elem["image"];
+    elemDescript = elem["description"];
+    elemPrice = elem["price"];
 
     var tovar = document.createElement('div');
     tovar.setAttribute('class', 'tovar');
@@ -26,6 +28,7 @@ var limit;
 
     var icon_doby = document.createElement('div');
     var text = document.createElement('p');
+    text.setAttribute('class', 'tovar-name');
     text.innerText = tagName;
 
     var href = document.createElement('a');
@@ -52,6 +55,10 @@ var limit;
     button.setAttribute('class', 'add-button');
     button.innerText = "add"
 
+    var category = document.createElement('div');
+    category.setAttribute('class', 'tovar-category');
+    category.innerText = elemCategory;
+
     icon_doby.setAttribute('class', 'icon-body');
     icon_doby.appendChild(text);
     icon_doby.appendChild(href);
@@ -60,19 +67,20 @@ var limit;
     icon_doby.appendChild(line);
     icon_doby.appendChild(price);
     icon_doby.appendChild(button);
+    icon_doby.appendChild(category);
+
 
 
     tovar.appendChild(icon_image);
     tovar.appendChild(icon_doby);
     listElm.appendChild(tovar);
-  
+
   }
   offset += 1;
 }
 
 
 function fileRead(i) {
-  console.log(i);
   fetch("../data/main.json")
     .then(response => response.json())
     .then(data => {
@@ -103,6 +111,21 @@ document.addEventListener('DOMContentLoaded', function (e) {
     if (currentScroll + modifier > documentHeight) {
       console.log('You are at the bottom!')
       loadMore();
+      scrollDebaunce();
     }
   })
 })
+
+
+function scrollDebaunce(){ 
+  const debounce = (fn, ms) => {
+    let timeout;
+        return function () {
+            const fnCall = () => { fn.apply(this, arguments) }
+    
+            clearTimeout(timeout);
+            timeout = setTimeout(fnCall,ms)
+        };
+    }
+    loadMore = debounce(loadMore,300);
+  }

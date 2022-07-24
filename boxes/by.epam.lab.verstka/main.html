@@ -5,7 +5,6 @@
   <meta charset='UTF-8' />
   <title>Main Page</title>
   <link rel='stylesheet' href='/boxes/styles/main.css' />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous">
     </script>
@@ -38,82 +37,88 @@
   </div>
   </div>
 
-  <div class="main-body">
+  <div class="main-body" id ="main-body">
 
     <div class="tovar">
       <div class="icon-image"><img src="/images/eagle.jpeg" class="icon-image"></div>
       <div class="icon-body">
-        <p>Cupon Name</p>
-        <a href="#"> <img src='/images/favorite_black_24dp.svg' /></a>
+        <p class="tovar-name">card</p>
+        <a href="#" style="padding-left: 60px"> <img src='/images/favorite_black_24dp.svg' /></a>
         <p class="descr-style">Some Description</p>
         <p class="small">Expiration 3 days</p>
         <div class="line"></div>
         <p class="price">500$</p>
         <button class="add-button">add</button>
+        <div class="tovar-category">nature</div>
       </div>
     </div>
 
     <div class="tovar">
       <div class="icon-image"><img src="/images/forest1920.jpg" class="icon-image"></div>
       <div class="icon-body">
-        <p>Cupon Name</p>
-        <a href="#"> <img src='/images/favorite_black_24dp.svg' /></a>
-        <p class="descr-style">Some Description</p>
+        <p class="tovar-name">Huge rainy forests</p>
+        <a href="#" style="padding-left: 60px"> <img src='/images/favorite_black_24dp.svg' /></a>
+        <p class="descr-style">Search Description</p>
         <p class="small">Expiration 3 days</p>
         <div class="line"></div>
         <p class="price">500$</p>
         <button class="add-button">add</button>
+        <div class="tovar-category">nature</div>
       </div>
     </div>
 
-    <div class="tovar">
+    <div hidden class="tovar">
       <div class="icon-image"><img src="/images/lake.jpg" class="icon-image"></div>
       <div class="icon-body">
-        <p>Cupon Name</p>
+        <p class="tovar-name">My Baikal lake</p>
         <a href="#"> <img src='/images/favorite_black_24dp.svg' /></a>
         <p class="descr-style">Some Description</p>
         <p class="small">Expiration 3 days</p>
         <div class="line"></div>
         <p class="price">500$</p>
         <button class="add-button">add</button>
+        <div class="tovar-category">nature</div>
       </div>
     </div>
 
     <div class="tovar">
       <div class="icon-image"><img src="/images/tree.jpg" class="icon-image"></div>
       <div class="icon-body">
-        <p>Cupon Name</p>
+        <p class="tovar-name">Cupon BLOG</p>
         <p><a href="#"> <img src='/images/favorite_black_24dp.svg' /></a></p>
         <p class="descr-style">Some Description</p>
         <div class="line"></div>
         <p class="price">500$</p>
         <button class="add-button">add</button>
+        <div class="tovar-category">nature</div>
       </div>
     </div>
 
     <div class="tovar">
       <div class="icon-image"><img src="/images/tv.jpeg" class="icon-image"></div>
       <div class="icon-body">
-        <p>Cupon Name</p>
+        <p class="tovar-name">Cupon Name</p>
         <p><a href="#"> <img src='/images/favorite_black_24dp.svg' /></a></p>
         <p class="descr-style">Some Description</p>
         <p class="small">Expiration 3 days</p>
         <div class="line"></div>
         <p class="price">500$</p>
         <button class="add-button">add</button>
+        <div class="tovar-category">tecnology</div>
       </div>
     </div>
 
     <div class="tovar">
       <div class="icon-image"><img src="/images/road2.jpg" class="icon-image"></div>
       <div class="icon-body">
-        <p>Cupon Name</p>
+        <p class="tovar-name">Cupon Name</p>
         <p><a href="#"> <img src='/images/favorite_black_24dp.svg' /></a></p>
         <p class="descr-style">Some Description</p>
         <p class="small">Expiration 3 days</p>
         <div class="line"></div>
         <p class="price">500$</p>
         <button class="add-button">add</button>
+        <div class="tovar-category">tecnology</div>
       </div>
     </div>
 
@@ -121,26 +126,28 @@
       <div class="icon-image"><img src="/images/ship.jpeg">
       </div>
       <div class="icon-body">
-        <p>Cupon Name</p>
+        <p class="tovar-name">Cupon Name</p>
         <p><a href="#"> <img src='/images/favorite_black_24dp.svg' /></a></p>
         <p class="descr-style">Some Description</p>
         <p class="small">Expiration 3 days</p>
         <div class="line"></div>
         <p class="price">500$</p>
         <button class="add-button">add</button>
+        <div class="tovar-category">tecnology</div>
       </div>
     </div>
 
     <div class="tovar">
       <div class="icon-image"><img src="/images/road.jpg"></div>
       <div class="icon-body">
-        <p>Cupon Name</p>
+        <p class="tovar-name">Cupon Name</p>
         <p><a href="itemDetails.html"> <img src='/images/favorite_black_24dp.svg' /></a></p>
         <p class="descr-style">Some Description</p>
         <p class="small">Expiration 3 days</p>
         <div class="line"></div>
         <p class="price">500$</p>
         <button class="add-button">add</button>
+        <div class="tovar-category">tecnology</div>
       </div>
     </div>
 
@@ -152,14 +159,16 @@
       </svg>
     </button>
 
+    
 
   </div>
 
-
   <script src="/script/scroll.js"></script>
   <script src="/script/top.js"></script>
+  <script src="/script/search.js"></script>
+  
 
-  <script>
+  <!-- <script>
     // Сохраняем позицию прокрутки при прокрутке
     $(window).scroll(function () {
       if ($(document).scrollTop() != 0) {
@@ -171,14 +180,15 @@
       var offset = localStorage.getItem("offsetTop");
       $(document).scrollTop(offset);
     };
-  </script>
+  </script> -->
 
-</body>
 
 <script>
   $(function () {
     $("#header").load("header.html");
   });
 </script>
+</body>
+
 
 </html>
